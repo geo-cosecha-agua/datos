@@ -21,3 +21,8 @@ ogr2ogr -nln suelos-temp -s_srs EPSG:32616 -t_srs EPSG:4326 -makevalid geo/suelo
 ogr2ogr -nln suelos -s_srs EPSG:4326 -t_srs EPSG:4326 -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/suelos/suelos.geojson geo/suelos/suelos-temp.geojson
 del geo\suelos\suelos-temp.geojson
 ```
+
+Textura
+```shell
+python %CONDA_PREFIX%\Scripts\gdal_calc.py ../datos-originales/geo/textura/textura.img geo/textura/textura.geojson
+```
