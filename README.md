@@ -25,6 +25,6 @@ del geo\suelos\suelos-temp.geojson
 Textura
 ```shell
 python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp.geojson
-ogr2ogr -nln textura -s_srs EPSG:4326 -t_srs EPSG:4326 -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp.geojson
+ogr2ogr -nln textura -s_srs EPSG:32616 -t_srs EPSG:4326 -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp.geojson
 del geo\textura\textura-temp.geojson
 ```
