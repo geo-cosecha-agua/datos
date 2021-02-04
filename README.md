@@ -24,5 +24,5 @@ del geo\suelos\suelos-temp.geojson
 
 Textura
 ```shell
-python %CONDA_PREFIX%\Scripts\gdal_calc.py ../datos-originales/geo/textura/textura.img geo/textura/textura.geojson
+python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura.geojson
 ```
