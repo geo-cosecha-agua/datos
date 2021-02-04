@@ -26,6 +26,6 @@ Textura
 ```shell
 python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp01.geojson
 ogr2ogr -nln textura -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.geojson geo/textura/textura-temp01.geojson
-ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp02.geojson
+ogr2ogr -nln textura -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp02.geojson
 del geo\textura\textura-temp*.geojson
 ```
