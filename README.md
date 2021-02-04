@@ -24,11 +24,11 @@ del geo\suelos\suelos-temp.geojson
 
 Textura
 ```shell
-python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img -f GeoJSON geo/textura/textura-temp01.geojson textura textura_id
-ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.geojson geo/textura/textura-temp01.geojson
-ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp02.geojson
+python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp01.shp textura textura_id
+ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.shp geo/textura/textura-temp01.shp
+ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.shp geo/textura/textura-temp02.shp
 
-ogrinfo geo/textura/textura.geojson -dialect SQLite -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
+ogrinfo geo/textura/textura.shp -dialect SQLite -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
 
 del geo\textura\textura-temp*.geojson
 ```
