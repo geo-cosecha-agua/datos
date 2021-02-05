@@ -39,5 +39,5 @@ ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura
 
 ogr2ogr -makevalid geo/textura/textura.geojson geo/textura/textura.shp
 
-del geo\textura\textura-temp*.shp
+del geo\textura\textura-temp*.*
 ```
