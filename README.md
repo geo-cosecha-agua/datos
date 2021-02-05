@@ -24,11 +24,18 @@ del geo\suelos\suelos-temp.geojson
 
 Textura
 ```shell
-python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp01.shp textura textura_id
-ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.shp geo/textura/textura-temp01.shp
-ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.shp geo/textura/textura-temp02.shp
+python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp01.geojson textura textura_id
+ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.geojson geo/textura/textura-temp01.geojson
+ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.geojson geo/textura/textura-temp02.geojson
 
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
+ogrinfo geo/textura/textura.geojson -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 1"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'FA' WHERE textura_id = 2"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 3"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'aF' WHERE textura_id = 4"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'A' WHERE textura_id = 5"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'Ap' WHERE textura_id = 6"
+ogrinfo geo/textura/textura.geojson -sql "UPDATE textura SET textura = 'a' WHERE textura_id = 7"
 
 del geo\textura\textura-temp*.geojson
 ```
