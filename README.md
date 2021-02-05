@@ -62,7 +62,7 @@ ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET
 ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Suelo sin vegetación' WHERE uso_id = 11"
 ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Centros poblados' WHERE uso_id = 12"
 ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Bosque de pino cerrado' WHERE uso_id = 13"
-ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Vegetación herbacea' WHERE uso_id = 14"
+ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Vegetación herbácea' WHERE uso_id = 14"
 ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Tierras sujetas a inundación' WHERE uso_id = 15"
 ogrinfo geo/uso-suelo/uso-suelo.shp -dialect SQLite -sql "UPDATE 'uso-suelo' SET uso_suelo = 'Manglar' WHERE uso_id = 16"
 
