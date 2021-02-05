@@ -26,18 +26,18 @@ Textura
 ```shell
 python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/textura/textura.img geo/textura/textura-temp01.shp textura textura_id
 ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/textura/textura-temp02.shp geo/textura/textura-temp01.shp
-ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura.shp geo/textura/textura-temp02.shp
+ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textura/textura-temp03.shp geo/textura/textura-temp02.shp
 
-ogrinfo geo/textura/textura.shp -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 1"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'FA' WHERE textura_id = 2"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Fa' WHERE textura_id = 3"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'aF' WHERE textura_id = 4"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'A' WHERE textura_id = 5"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Ap' WHERE textura_id = 6"
-ogrinfo geo/textura/textura.shp -dialect SQLite -sql "UPDATE textura SET textura = 'a' WHERE textura_id = 7"
+ogrinfo geo/textura/textura-temp03.shp -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 1"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'FA' WHERE textura_id = 2"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Fa' WHERE textura_id = 3"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'aF' WHERE textura_id = 4"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'A' WHERE textura_id = 5"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'Ap' WHERE textura_id = 6"
+ogrinfo geo/textura/textura-temp03.shp -dialect SQLite -sql "UPDATE textura SET textura = 'a' WHERE textura_id = 7"
 
-ogr2ogr -makevalid geo/textura/textura.geojson geo/textura/textura.shp
+ogr2ogr -makevalid geo/textura/textura.geojson geo/textura/textura-temp03.shp
 
 del geo\textura\textura-temp*.*
 ```
