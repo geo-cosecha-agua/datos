@@ -44,27 +44,27 @@ del geo\textura\textura-temp*.*
 
 Uso de suelo
 ```shell
-python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/uso-suelo/Uso_actual.img geo/uso-suelo/uso-suelo-temp01.shp uso_suelo uso_suelo_id
+python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/uso-suelo/Uso_actual.img geo/uso-suelo/uso-suelo-temp01.shp uso_suelo uso_id
 ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/uso-suelo/uso-suelo-temp02.shp geo/uso-suelo/uso-suelo-temp01.shp
 ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/uso-suelo/uso-suelo.shp geo/uso-suelo/uso-suelo-temp02.shp
 
 ogrinfo geo/textura/uso-suelo.shp -sql "ALTER TABLE uso_suelo ADD COLUMN uso_suelo character(20)"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = '' WHERE textura_id = 1"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque latifoliado abierto' WHERE textura_id = 2"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Tacotal' WHERE textura_id = 3"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque latifoliado cerrado' WHERE textura_id = 4"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Cultivos perennes' WHERE textura_id = 5"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Cultivos anuales' WHERE textura_id = 6"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Pasto' WHERE textura_id = 7"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Vegetación arbustiva' WHERE textura_id = 8"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque de pino abierto' WHERE textura_id = 9"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Agua' WHERE textura_id = 10"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Suelo sin vegetación' WHERE textura_id = 11"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Centros poblados' WHERE textura_id = 12"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque de pino cerrado' WHERE textura_id = 13"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Vegetación herbacea' WHERE textura_id = 14"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Tierras sujetas a inundación' WHERE textura_id = 15"
-ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Manglar' WHERE textura_id = 16"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = '' WHERE uso_id = 1"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque latifoliado abierto' WHERE uso_id = 2"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Tacotal' WHERE uso_id = 3"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque latifoliado cerrado' WHERE uso_id = 4"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Cultivos perennes' WHERE uso_id = 5"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Cultivos anuales' WHERE uso_id = 6"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Pasto' WHERE uso_id = 7"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Vegetación arbustiva' WHERE uso_id = 8"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque de pino abierto' WHERE uso_id = 9"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Agua' WHERE uso_id = 10"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Suelo sin vegetación' WHERE uso_id = 11"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Centros poblados' WHERE uso_id = 12"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Bosque de pino cerrado' WHERE uso_id = 13"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Vegetación herbacea' WHERE uso_id = 14"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Tierras sujetas a inundación' WHERE uso_id = 15"
+ogrinfo geo/textura/uso-suelo.shp -dialect SQLite -sql "UPDATE uso_suelo SET uso_suelo = 'Manglar' WHERE uso_id = 16"
 
 ogr2ogr -makevalid geo/uso-suelo/uso-suelo.geojson geo/uso-suelo/uso-suelo.shp
 
