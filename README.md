@@ -31,7 +31,7 @@ ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/textu
 ogrinfo geo/textura/textura.shp -sql "ALTER TABLE textura ADD COLUMN textura character(20)"
 ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 1"
 ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'FA' WHERE textura_id = 2"
-ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'Fa, F, FL' WHERE textura_id = 3"
+ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'Fa' WHERE textura_id = 3"
 ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'aF' WHERE textura_id = 4"
 ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'A' WHERE textura_id = 5"
 ogrinfo geo/textura/textura.shp -sql "UPDATE textura SET textura = 'Ap' WHERE textura_id = 6"
