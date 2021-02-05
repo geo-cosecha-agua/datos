@@ -44,7 +44,7 @@ del geo\textura\textura-temp*.*
 
 Uso de suelo
 ```shell
-python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/uso-suelo/Uso-actual.img geo/uso-suelo/uso-suelo-temp01.shp uso_suelo uso_suelo_id
+python %CONDA_PREFIX%\Scripts\gdal_polygonize.py ../datos-originales/geo/uso-suelo/Uso_actual.img geo/uso-suelo/uso-suelo-temp01.shp uso_suelo uso_suelo_id
 ogr2ogr -makevalid -s_srs EPSG:32616 -t_srs EPSG:4326 geo/uso-suelo/uso-suelo-temp02.shp geo/uso-suelo/uso-suelo-temp01.shp
 ogr2ogr -makevalid -clipsrc geo/municipios/municipios-disuelto.geojson geo/uso-suelo/uso-suelo.shp geo/uso-suelo/uso-suelo-temp02.shp
 
